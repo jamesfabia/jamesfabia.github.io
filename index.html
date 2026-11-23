@@ -1,0 +1,1630 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>万物皆可踩_生活影像_官方视频社区</title>
+<meta name="description" content="万物皆可踩是聚焦生活探索与兴趣实验的原创视频品牌官方网站，深耕城市脚步影像与日常创造力内容生态。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c2b3a'/%3E%3Ccircle cx='26' cy='24' r='7' fill='%23f2b544'/%3E%3Cpath d='M18 46c4-9 9-13 16-13s11 4 14 13z' fill='%23e8703a'/%3E%3C/svg%3E">
+<style>
+:root{
+  --wq-base:#1c2b3a;
+  --wq-deep:#121e2a;
+  --wq-amber:#f2b544;
+  --wq-orange:#e8703a;
+  --wq-red:#d94f3d;
+  --wq-paper:#f7f4ee;
+  --wq-card:#ffffff;
+  --wq-line:#e3ddd2;
+  --wq-text:#22303d;
+  --wq-muted:#6d7885;
+  --wq-soft:#efe9de;
+  --wq-radius:18px;
+  --wq-shadow:0 10px 28px rgba(28,43,58,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  background:var(--wq-paper);
+  color:var(--wq-text);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+ul{list-style:none}
+
+/* ===== sticky wrap: notice + header ===== */
+.wq-sticky-wrap{
+  position:sticky;
+  top:0;
+  z-index:120;
+}
+.wq-notice{
+  background:var(--wq-deep);
+  color:#f4ead8;
+  font-size:13px;
+  letter-spacing:.02em;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:8px 18px;
+  text-align:center;
+}
+.wq-notice .wq-notice-tag{
+  background:var(--wq-amber);
+  color:#20262c;
+  font-weight:700;
+  border-radius:999px;
+  padding:1px 10px;
+  font-size:12px;
+  white-space:nowrap;
+}
+.wq-notice b{color:var(--wq-amber);font-weight:600}
+
+.wq-header{
+  background:rgba(247,244,238,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--wq-line);
+}
+.wq-header-inner{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 22px;
+  height:68px;
+  display:flex;
+  align-items:center;
+  gap:22px;
+}
+.wq-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:800;
+  font-size:19px;
+  letter-spacing:.04em;
+  color:var(--wq-base);
+  white-space:nowrap;
+}
+.wq-logo-mark{
+  width:34px;height:34px;border-radius:10px;
+  background:linear-gradient(135deg,var(--wq-base),#2f4a63);
+  display:grid;place-items:center;
+  color:var(--wq-amber);font-size:16px;font-weight:900;
+  flex:0 0 auto;
+}
+.wq-nav{
+  display:flex;
+  gap:4px;
+  margin-left:6px;
+  flex:1;
+  min-width:0;
+}
+.wq-nav a{
+  padding:8px 12px;
+  border-radius:10px;
+  font-size:14.5px;
+  color:#3a4753;
+  transition:background .2s,color .2s;
+  white-space:nowrap;
+}
+.wq-nav a:hover{background:var(--wq-soft);color:var(--wq-deep)}
+.wq-search{
+  position:relative;
+  display:flex;
+  align-items:center;
+  border:1.5px solid var(--wq-line);
+  background:#fff;
+  border-radius:999px;
+  padding:5px 6px 5px 14px;
+  gap:6px;
+}
+.wq-search input{
+  border:none;outline:none;background:transparent;
+  width:150px;font-size:14px;color:var(--wq-text);
+}
+.wq-search input::placeholder{color:#a2abb5}
+.wq-search button[type=submit]{
+  background:var(--wq-base);color:var(--wq-amber);
+  border-radius:999px;padding:5px 13px;font-size:13px;font-weight:600;
+  transition:background .2s;
+}
+.wq-search button[type=submit]:hover{background:#2c4258}
+.wq-search-feedback{
+  position:absolute;top:calc(100% + 8px);right:0;
+  background:var(--wq-deep);color:#f4ead8;
+  padding:7px 13px;border-radius:10px;font-size:12.5px;
+  white-space:nowrap;
+  box-shadow:var(--wq-shadow);
+  opacity:0;transform:translateY(-6px);pointer-events:none;
+  transition:opacity .25s,transform .25s;
+}
+.wq-search-feedback.wq-show{opacity:1;transform:translateY(0)}
+.wq-nav-toggle{
+  display:none;
+  width:40px;height:40px;border-radius:10px;
+  background:var(--wq-base);color:#fff;font-size:18px;
+  align-items:center;justify-content:center;
+}
+.wq-mobile-nav{
+  display:none;
+  background:var(--wq-paper);
+  border-bottom:1px solid var(--wq-line);
+  padding:6px 22px 14px;
+}
+.wq-mobile-nav.wq-open{display:block}
+.wq-mobile-nav a{
+  display:block;
+  padding:11px 6px;
+  border-bottom:1px dashed var(--wq-line);
+  font-size:15px;
+}
+.wq-mobile-nav a:last-child{border-bottom:none}
+
+/* ===== layout helpers ===== */
+.wq-section{
+  max-width:1180px;
+  margin:0 auto;
+  padding:62px 22px;
+}
+.wq-section-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:30px;
+  flex-wrap:wrap;
+}
+.wq-section-tag{
+  display:inline-block;
+  font-size:12.5px;
+  font-weight:700;
+  letter-spacing:.14em;
+  color:var(--wq-orange);
+  margin-bottom:9px;
+  text-transform:uppercase;
+}
+.wq-section-head h2{
+  font-size:clamp(24px,3vw,32px);
+  line-height:1.3;
+  color:var(--wq-deep);
+  letter-spacing:.01em;
+}
+.wq-section-head p{
+  color:var(--wq-muted);
+  font-size:14.5px;
+  max-width:520px;
+  margin-top:8px;
+}
+.wq-section-head .wq-link-more{
+  font-size:14px;font-weight:600;color:var(--wq-base);
+  border-bottom:2px solid var(--wq-amber);
+  padding-bottom:2px;white-space:nowrap;
+}
+
+/* ===== hero ===== */
+.wq-hero{
+  position:relative;
+  background:linear-gradient(160deg,#16222e 0%,#1c2b3a 46%,#28405a 100%);
+  color:#fff;
+  overflow:hidden;
+}
+.wq-hero-inner{
+  max-width:1180px;
+  margin:0 auto;
+  padding:56px 22px 64px;
+  display:grid;
+  grid-template-columns:minmax(0,5fr) minmax(0,5fr);
+  gap:46px;
+  align-items:center;
+}
+.wq-hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid rgba(242,181,68,.5);
+  color:var(--wq-amber);
+  border-radius:999px;
+  padding:4px 14px;
+  font-size:12.5px;
+  letter-spacing:.06em;
+  margin-bottom:20px;
+}
+.wq-hero-badge i{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--wq-amber);
+  display:inline-block;
+  animation:wqPulse 1.8s infinite;
+}
+@keyframes wqPulse{0%,100%{opacity:1}50%{opacity:.25}}
+.wq-hero h1{
+  font-size:clamp(40px,6vw,68px);
+  line-height:1.08;
+  letter-spacing:.02em;
+  font-weight:900;
+}
+.wq-hero h1 span{color:var(--wq-amber)}
+.wq-hero-lead{
+  margin-top:18px;
+  font-size:17px;
+  color:#cfd9e2;
+  max-width:520px;
+}
+.wq-hero-intro{
+  margin-top:18px;
+  font-size:14.5px;
+  color:#a9b7c3;
+  max-width:540px;
+  border-left:3px solid var(--wq-orange);
+  padding-left:14px;
+}
+.wq-hero-actions{
+  margin-top:26px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.wq-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  border-radius:999px;
+  padding:11px 24px;
+  font-size:14.5px;
+  font-weight:700;
+  transition:transform .18s,box-shadow .18s,background .18s;
+}
+.wq-btn-primary{
+  background:var(--wq-amber);
+  color:#1b232b;
+}
+.wq-btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(242,181,68,.35)}
+.wq-btn-ghost{
+  border:1.5px solid rgba(255,255,255,.4);
+  color:#fff;
+}
+.wq-btn-ghost:hover{background:rgba(255,255,255,.12)}
+.wq-hero-stats{
+  margin-top:34px;
+  display:flex;
+  gap:34px;
+  flex-wrap:wrap;
+}
+.wq-hero-stat b{
+  display:block;
+  font-size:26px;
+  color:var(--wq-amber);
+  font-weight:800;
+  letter-spacing:.02em;
+}
+.wq-hero-stat span{font-size:12.5px;color:#9fb0be}
+.wq-hero-visual{
+  position:relative;
+}
+.wq-hero-visual img{
+  width:100%;
+  aspect-ratio:4/3.4;
+  object-fit:cover;
+  border-radius:24px;
+  box-shadow:0 24px 60px rgba(0,0,0,.42);
+}
+.wq-hero-float{
+  position:absolute;
+  left:-14px;
+  bottom:26px;
+  background:rgba(18,30,42,.9);
+  border:1px solid rgba(242,181,68,.35);
+  backdrop-filter:blur(6px);
+  border-radius:14px;
+  padding:12px 16px;
+  font-size:12.5px;
+  color:#dfe7ee;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.wq-hero-float strong{color:var(--wq-amber);font-size:15px}
+
+/* ===== brand intro / 关键词解析 ===== */
+.wq-about-band{
+  background:var(--wq-card);
+  border-top:1px solid var(--wq-line);
+  border-bottom:1px solid var(--wq-line);
+}
+.wq-about-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.45fr);
+  gap:46px;
+  align-items:start;
+}
+.wq-about-grid p{
+  font-size:15px;
+  color:#3e4b57;
+  margin-bottom:14px;
+}
+.wq-about-grid p strong{color:var(--wq-deep)}
+.wq-about-side{
+  background:var(--wq-paper);
+  border:1px solid var(--wq-line);
+  border-radius:var(--wq-radius);
+  padding:24px;
+}
+.wq-about-side h3{
+  font-size:16px;color:var(--wq-deep);margin-bottom:12px;
+}
+.wq-stat-row{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  margin-top:6px;
+}
+.wq-stat-card{
+  background:#fff;
+  border-radius:12px;
+  padding:14px 10px;
+  text-align:center;
+  border:1px solid var(--wq-line);
+}
+.wq-stat-card b{
+  display:block;font-size:20px;color:var(--wq-orange);font-weight:800;
+}
+.wq-stat-card span{font-size:11.5px;color:var(--wq-muted)}
+.wq-parse{
+  margin-top:60px;
+}
+.wq-parse h3{
+  font-size:19px;
+  color:var(--wq-deep);
+  margin:26px 0 10px;
+  padding-left:14px;
+  border-left:4px solid var(--wq-amber);
+}
+.wq-parse p{
+  font-size:15px;
+  color:#414e5a;
+  margin-bottom:13px;
+}
+.wq-parse-highlight{
+  background:linear-gradient(90deg,rgba(242,181,68,.16),rgba(242,181,68,0));
+  border-left:3px solid var(--wq-orange);
+  padding:14px 18px;
+  border-radius:0 12px 12px 0;
+  font-size:14.5px;
+  color:#4a5866;
+  margin:18px 0;
+}
+
+/* ===== video focus module ===== */
+.wq-video-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
+  gap:30px;
+  align-items:start;
+}
+.wq-video-feature{
+  background:var(--wq-card);
+  border-radius:var(--wq-radius);
+  overflow:hidden;
+  box-shadow:var(--wq-shadow);
+  transition:transform .2s;
+}
+.wq-video-feature:hover{transform:translateY(-4px)}
+.wq-video-feature-img{
+  position:relative;
+  overflow:hidden;
+}
+.wq-video-feature-img img{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+}
+.wq-video-feature-img .wq-play-badge{
+  position:absolute;
+  right:14px;bottom:14px;
+  background:rgba(18,30,42,.86);
+  color:var(--wq-amber);
+  border-radius:999px;
+  padding:5px 13px;
+  font-size:12.5px;
+  font-weight:700;
+  display:flex;align-items:center;gap:6px;
+}
+.wq-video-feature-body{padding:20px 22px 22px}
+.wq-video-feature-body h3{
+  font-size:20px;color:var(--wq-deep);line-height:1.4;
+}
+.wq-video-feature-body p{
+  font-size:14px;color:var(--wq-muted);margin:9px 0 14px;
+}
+.wq-tag-row{
+  display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px;
+}
+.wq-tag{
+  background:var(--wq-soft);
+  color:#5a6672;
+  border-radius:999px;
+  padding:2px 11px;
+  font-size:12px;
+}
+.wq-tag.wq-tag-hot{background:#fde9d4;color:#b4531f}
+.wq-video-meta{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;flex-wrap:wrap;font-size:13px;color:var(--wq-muted);
+}
+.wq-video-meta .wq-author-inline{display:flex;align-items:center;gap:8px}
+.wq-avatar{
+  width:30px;height:30px;border-radius:50%;
+  display:grid;place-items:center;
+  font-size:13px;font-weight:800;color:#fff;
+  flex:0 0 auto;
+}
+.wq-avatar-a{background:linear-gradient(135deg,#e8703a,#d94f3d)}
+.wq-avatar-b{background:linear-gradient(135deg,#2f6f8f,#1c2b3a)}
+.wq-avatar-c{background:linear-gradient(135deg,#c9a227,#e8703a)}
+.wq-avatar-d{background:linear-gradient(135deg,#4f7a68,#2c4a44)}
+.wq-avatar-e{background:linear-gradient(135deg,#7a5c9e,#463a63)}
+.wq-avatar-f{background:linear-gradient(135deg,#c25b6e,#8f3a4b)}
+.wq-actions{
+  display:flex;gap:6px;flex-wrap:wrap;
+}
+.wq-act{
+  border:1px solid var(--wq-line);
+  background:#fff;
+  border-radius:999px;
+  padding:4px 11px;
+  font-size:12.5px;
+  color:#5b6773;
+  display:flex;align-items:center;gap:5px;
+  transition:background .18s,color .18s,border-color .18s;
+}
+.wq-act:hover{background:var(--wq-soft)}
+.wq-act.wq-act-on{
+  background:var(--wq-base);color:var(--wq-amber);border-color:var(--wq-base);
+}
+.wq-video-list{
+  display:flex;flex-direction:column;gap:14px;
+}
+.wq-video-item{
+  background:var(--wq-card);
+  border:1px solid var(--wq-line);
+  border-radius:14px;
+  padding:15px 17px;
+  transition:border-color .2s,box-shadow .2s,transform .2s;
+}
+.wq-video-item:hover{
+  border-color:var(--wq-amber);
+  box-shadow:var(--wq-shadow);
+  transform:translateY(-2px);
+}
+.wq-video-item h4{
+  font-size:15.5px;color:var(--wq-deep);line-height:1.4;
+}
+.wq-video-item p{
+  font-size:13px;color:var(--wq-muted);margin:6px 0 9px;
+}
+.wq-video-item .wq-video-meta{font-size:12.5px}
+
+/* ===== topic series ===== */
+.wq-topic-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:22px;
+}
+.wq-topic-card{
+  background:var(--wq-card);
+  border:1px solid var(--wq-line);
+  border-radius:var(--wq-radius);
+  padding:22px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .2s,box-shadow .2s;
+}
+.wq-topic-card:hover{transform:translateY(-4px);box-shadow:var(--wq-shadow)}
+.wq-topic-card::before{
+  content:"";
+  position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:linear-gradient(180deg,var(--wq-amber),var(--wq-orange));
+}
+.wq-topic-card h3{font-size:17px;color:var(--wq-deep);margin-bottom:8px}
+.wq-topic-status{
+  display:inline-block;
+  font-size:11.5px;font-weight:700;
+  border-radius:999px;padding:2px 10px;
+  background:#e6f0e9;color:#3f7a56;
+  margin-bottom:12px;
+}
+.wq-topic-status.wq-status-hot{background:#fde9d4;color:#b4531f}
+.wq-topic-card p{font-size:13.5px;color:var(--wq-muted);margin-bottom:14px}
+.wq-topic-card ol{
+  counter-reset:wqtopic;
+  display:flex;flex-direction:column;gap:8px;
+}
+.wq-topic-card ol li{
+  font-size:13px;color:#4b5864;
+  padding-left:24px;position:relative;
+}
+.wq-topic-card ol li::before{
+  counter-increment:wqtopic;
+  content:counter(wqtopic);
+  position:absolute;left:0;top:2px;
+  width:17px;height:17px;border-radius:50%;
+  background:var(--wq-soft);color:var(--wq-orange);
+  font-size:10.5px;font-weight:800;
+  display:grid;place-items:center;
+}
+
+/* ===== authors ===== */
+.wq-authors-wrap{
+  background:var(--wq-deep);
+  color:#e8eef3;
+}
+.wq-authors-wrap .wq-section-head h2{color:#fff}
+.wq-authors-wrap .wq-section-head p{color:#9fb0be}
+.wq-authors-wrap .wq-section-tag{color:var(--wq-amber)}
+.wq-author-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:20px;
+}
+.wq-author-card{
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:16px;
+  padding:22px;
+  display:flex;
+  gap:16px;
+  transition:background .2s,border-color .2s;
+}
+.wq-author-card:hover{background:rgba(255,255,255,.08);border-color:rgba(242,181,68,.45)}
+.wq-author-card .wq-avatar{
+  width:56px;height:56px;font-size:22px;
+}
+.wq-author-info{min-width:0}
+.wq-author-info h3{
+  font-size:17px;color:#fff;display:flex;align-items:center;gap:9px;flex-wrap:wrap;
+}
+.wq-author-info h3 em{
+  font-style:normal;
+  font-size:11px;
+  background:var(--wq-amber);
+  color:#1b232b;
+  border-radius:999px;
+  padding:1px 9px;
+  font-weight:800;
+}
+.wq-author-meta{
+  font-size:12.5px;color:#9fb0be;margin:4px 0 8px;
+  display:flex;gap:14px;flex-wrap:wrap;
+}
+.wq-author-info p{font-size:13px;color:#b9c6d1}
+.wq-author-info .wq-author-btn{
+  margin-top:11px;
+  font-size:12.5px;
+  color:var(--wq-amber);
+  border-bottom:1px dashed rgba(242,181,68,.6);
+  padding-bottom:1px;
+}
+
+/* ===== comments ===== */
+.wq-comments-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
+  gap:22px;
+}
+.wq-comment-list{
+  display:flex;flex-direction:column;gap:13px;
+}
+.wq-comment{
+  background:var(--wq-card);
+  border:1px solid var(--wq-line);
+  border-radius:14px;
+  padding:16px 18px;
+}
+.wq-comment-head{
+  display:flex;align-items:center;gap:10px;margin-bottom:7px;
+}
+.wq-comment-head b{font-size:13.5px;color:var(--wq-deep)}
+.wq-comment-head span{font-size:11.5px;color:#9aa4ae;margin-left:auto}
+.wq-comment p{font-size:13.5px;color:#485561}
+.wq-quote-card{
+  background:linear-gradient(150deg,#1c2b3a,#2b4358);
+  color:#e9eff4;
+  border-radius:var(--wq-radius);
+  padding:28px;
+  position:relative;
+}
+.wq-quote-card::before{
+  content:"“";
+  font-size:70px;
+  line-height:1;
+  color:var(--wq-amber);
+  opacity:.5;
+  display:block;
+  height:34px;
+}
+.wq-quote-card p{font-size:15.5px;margin-bottom:16px}
+.wq-quote-card span{font-size:12.5px;color:#9fb0be}
+.wq-score-box{
+  margin-top:20px;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+.wq-score-item{
+  background:rgba(255,255,255,.06);
+  border-radius:12px;
+  padding:13px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,.08);
+}
+.wq-score-item b{display:block;font-size:19px;color:var(--wq-amber)}
+.wq-score-item span{font-size:11.5px;color:#9fb0be}
+
+/* ===== timeline / 故事 ===== */
+.wq-timeline{
+  position:relative;
+  margin-left:8px;
+  padding-left:28px;
+  border-left:2px solid var(--wq-line);
+  display:flex;flex-direction:column;gap:26px;
+}
+.wq-timeline-item{position:relative}
+.wq-timeline-item::before{
+  content:"";
+  position:absolute;left:-37px;top:5px;
+  width:14px;height:14px;border-radius:50%;
+  background:#fff;
+  border:3px solid var(--wq-amber);
+}
+.wq-timeline-item h3{
+  font-size:16px;color:var(--wq-deep);margin-bottom:6px;
+}
+.wq-timeline-item span{
+  font-size:12px;color:var(--wq-orange);font-weight:700;letter-spacing:.05em;
+}
+.wq-timeline-item p{font-size:14px;color:var(--wq-muted);margin-top:6px}
+
+/* ===== FAQ + 动态 ===== */
+.wq-two-col{
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
+  gap:34px;
+  align-items:start;
+}
+.wq-faq details{
+  background:var(--wq-card);
+  border:1px solid var(--wq-line);
+  border-radius:12px;
+  margin-bottom:11px;
+  padding:14px 18px;
+  transition:border-color .2s;
+}
+.wq-faq details[open]{border-color:var(--wq-amber)}
+.wq-faq summary{
+  font-size:14.5px;font-weight:600;color:var(--wq-deep);
+  cursor:pointer;list-style:none;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.wq-faq summary::-webkit-details-marker{display:none}
+.wq-faq summary::after{
+  content:"+";
+  font-size:18px;color:var(--wq-orange);font-weight:400;
+  transition:transform .2s;
+}
+.wq-faq details[open] summary::after{transform:rotate(45deg)}
+.wq-faq details p{
+  font-size:13.5px;color:var(--wq-muted);margin-top:10px;
+}
+.wq-news-list{
+  display:flex;flex-direction:column;gap:12px;
+}
+.wq-news-item{
+  background:var(--wq-card);
+  border:1px solid var(--wq-line);
+  border-radius:12px;
+  padding:15px 18px;
+  display:flex;gap:14px;align-items:flex-start;
+}
+.wq-news-date{
+  background:var(--wq-soft);
+  color:var(--wq-base);
+  border-radius:9px;
+  padding:6px 9px;
+  font-size:11.5px;font-weight:700;
+  white-space:nowrap;
+  text-align:center;
+  line-height:1.3;
+}
+.wq-news-item h3{font-size:14.5px;color:var(--wq-deep);margin-bottom:3px}
+.wq-news-item p{font-size:12.5px;color:var(--wq-muted)}
+
+/* ===== partner wall ===== */
+.wq-partners{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+.wq-partner{
+  background:var(--wq-card);
+  border:1px solid var(--wq-line);
+  border-radius:12px;
+  padding:18px 14px;
+  text-align:center;
+  font-size:13.5px;
+  font-weight:700;
+  color:#4d5a66;
+  letter-spacing:.03em;
+  transition:border-color .2s,transform .2s;
+}
+.wq-partner:hover{border-color:var(--wq-orange);transform:translateY(-3px)}
+.wq-partner span{display:block;font-size:11px;color:#9aa4ae;font-weight:400;margin-top:4px}
+
+/* ===== footer ===== */
+.wq-footer{
+  background:var(--wq-deep);
+  color:#a6b4c0;
+  font-size:13.5px;
+}
+.wq-footer-inner{
+  max-width:1180px;
+  margin:0 auto;
+  padding:50px 22px 26px;
+  display:grid;
+  grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr);
+  gap:34px;
+}
+.wq-footer h3{
+  color:#fff;font-size:15px;margin-bottom:14px;
+}
+.wq-footer p{margin-bottom:9px}
+.wq-footer a{color:#c2ced8}
+.wq-footer a:hover{color:var(--wq-amber)}
+.wq-footer-col ul{display:flex;flex-direction:column;gap:8px}
+.wq-footer-bottom{
+  max-width:1180px;
+  margin:0 auto;
+  padding:16px 22px 26px;
+  border-top:1px solid rgba(255,255,255,.1);
+  font-size:12px;
+  color:#7f8f9d;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+/* ===== toast / back to top ===== */
+.wq-toast{
+  position:fixed;
+  left:50%;bottom:34px;
+  transform:translate(-50%,20px);
+  background:var(--wq-deep);
+  color:#f4ead8;
+  padding:11px 22px;
+  border-radius:999px;
+  font-size:13.5px;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+  opacity:0;pointer-events:none;
+  transition:opacity .25s,transform .25s;
+  z-index:300;
+}
+.wq-toast.wq-show{opacity:1;transform:translate(-50%,0)}
+.wq-backtop{
+  position:fixed;
+  right:22px;bottom:26px;
+  width:46px;height:46px;
+  border-radius:50%;
+  background:var(--wq-base);
+  color:var(--wq-amber);
+  font-size:19px;
+  display:grid;place-items:center;
+  box-shadow:0 8px 22px rgba(28,43,58,.35);
+  opacity:0;pointer-events:none;
+  transform:translateY(12px);
+  transition:opacity .25s,transform .25s;
+  z-index:200;
+}
+.wq-backtop.wq-show{opacity:1;pointer-events:auto;transform:translateY(0)}
+
+/* ===== modal (author) ===== */
+.wq-modal-mask{
+  position:fixed;inset:0;
+  background:rgba(14,22,30,.6);
+  backdrop-filter:blur(4px);
+  display:none;
+  place-items:center;
+  z-index:400;
+  padding:22px;
+}
+.wq-modal-mask.wq-show{display:grid}
+.wq-modal{
+  background:var(--wq-card);
+  border-radius:18px;
+  max-width:460px;
+  width:100%;
+  padding:30px;
+  position:relative;
+  box-shadow:0 30px 70px rgba(0,0,0,.35);
+}
+.wq-modal h3{font-size:20px;color:var(--wq-deep);margin-bottom:5px}
+.wq-modal .wq-modal-sub{font-size:12.5px;color:var(--wq-orange);font-weight:700;margin-bottom:14px}
+.wq-modal p{font-size:14px;color:var(--wq-muted);margin-bottom:10px}
+.wq-modal-close{
+  position:absolute;right:16px;top:14px;
+  width:32px;height:32px;border-radius:50%;
+  background:var(--wq-soft);color:#5b6773;
+  font-size:16px;display:grid;place-items:center;
+}
+.wq-modal-close:hover{background:#e4dccd}
+
+/* anchor offset for sticky notice+header */
+#wq-main{scroll-margin-top:120px}
+.wq-anchor{scroll-margin-top:120px}
+
+/* ===== responsive ===== */
+@media (max-width:980px){
+  .wq-hero-inner{grid-template-columns:1fr;gap:34px;padding:44px 22px 52px}
+  .wq-hero-visual{order:-1}
+  .wq-hero-visual img{aspect-ratio:16/10}
+  .wq-about-grid{grid-template-columns:1fr}
+  .wq-video-layout{grid-template-columns:1fr}
+  .wq-topic-grid{grid-template-columns:1fr 1fr}
+  .wq-author-grid{grid-template-columns:1fr}
+  .wq-comments-grid{grid-template-columns:1fr}
+  .wq-two-col{grid-template-columns:1fr}
+  .wq-footer-inner{grid-template-columns:1fr 1fr}
+  .wq-partners{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  .wq-nav{display:none}
+  .wq-nav-toggle{display:flex}
+  .wq-search input{width:96px}
+  .wq-header-inner{gap:12px;padding:0 16px}
+  .wq-logo{font-size:17px}
+  .wq-section{padding:46px 16px}
+  .wq-topic-grid{grid-template-columns:1fr}
+  .wq-author-grid{grid-template-columns:1fr}
+  .wq-stat-row{grid-template-columns:1fr 1fr}
+  .wq-footer-inner{grid-template-columns:1fr}
+  .wq-hero-stats{gap:22px}
+  .wq-hero-float{left:8px;bottom:10px}
+  .wq-notice{font-size:11.5px;padding:7px 12px;gap:6px;flex-wrap:wrap}
+  .wq-notice span.wq-notice-text{display:none}
+  .wq-score-box{grid-template-columns:1fr 1fr 1fr}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- S1 公告条 + 页头 -->
+<div class="wq-sticky-wrap">
+  <div class="wq-notice">
+    <span class="wq-notice-tag">官方发布</span>
+    <span class="wq-notice-text">《万物皆可踩·城市脚步季》第二期上线，新增 <b>18</b> 支原创高清视频与 <b>3</b> 个专题企划；创作者投稿通道同步开放报名。</span>
+  </div>
+  <header class="wq-header">
+    <div class="wq-header-inner">
+      <a class="wq-logo" href="#wq-main">
+        <span class="wq-logo-mark">踩</span>
+        万物皆可踩
+      </a>
+      <nav class="wq-nav" aria-label="主导航">
+        <a href="#wq-main">首页</a>
+        <a href="#wq-videos">精品内容</a>
+        <a href="#wq-topics">专题企划</a>
+        <a href="#wq-authors">创作者</a>
+        <a href="#wq-comments">用户口碑</a>
+        <a href="#wq-help">帮助中心</a>
+      </nav>
+      <form class="wq-search" id="wq-search-form" role="search">
+        <input type="search" id="wq-search-input" placeholder="搜索脚步、城市、创作者" aria-label="站内搜索">
+        <button type="submit">搜索</button>
+        <span class="wq-search-feedback" id="wq-search-feedback"></span>
+      </form>
+      <button class="wq-nav-toggle" id="wq-nav-toggle" aria-label="展开导航" aria-expanded="false">☰</button>
+    </div>
+    <div class="wq-mobile-nav" id="wq-mobile-nav">
+      <a href="#wq-main">首页</a>
+      <a href="#wq-videos">精品内容</a>
+      <a href="#wq-topics">专题企划</a>
+      <a href="#wq-authors">创作者</a>
+      <a href="#wq-comments">用户口碑</a>
+      <a href="#wq-help">帮助中心</a>
+    </div>
+  </header>
+</div>
+
+<main id="wq-main">
+
+  <!-- S2 品牌首屏 -->
+  <section class="wq-hero">
+    <div class="wq-hero-inner">
+      <div class="wq-hero-copy">
+        <span class="wq-hero-badge"><i></i> 官方网站 · 品牌视频门户</span>
+        <h1>万物皆可<span>踩</span></h1>
+        <p class="wq-hero-lead">用脚步丈量城市肌理，用镜头记录生活里一切可被踏访的角落。</p>
+        <p class="wq-hero-intro">作为专注脚步影像与生活探索的原创视频品牌，我们持续深耕城市行走、兴趣实验与日常记录这一垂直领域，为企业与创作者搭建高品质内容生态。</p>
+        <div class="wq-hero-actions">
+          <a class="wq-btn wq-btn-primary" href="#wq-videos">观看精品内容</a>
+          <a class="wq-btn wq-btn-ghost" href="#wq-topics">浏览专题企划</a>
+          <button class="wq-btn wq-btn-ghost" id="wq-open-submit-hero">创作者投稿</button>
+        </div>
+        <div class="wq-hero-stats">
+          <div class="wq-hero-stat"><b data-wq-count="1260">0</b><span>原创高清视频</span></div>
+          <div class="wq-hero-stat"><b data-wq-count="86">0</b><span>签约创作者</span></div>
+          <div class="wq-hero-stat"><b data-wq-count="42">0</b><span>城市足迹覆盖</span></div>
+        </div>
+      </div>
+      <div class="wq-hero-visual">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 680'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%232a3f55'/%3E%3Cstop offset='1' stop-color='%23131e29'/%3E%3C/linearGradient%3E%3ClinearGradient id='road' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23f2b544'/%3E%3Cstop offset='1' stop-color='%23e8703a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='680' fill='url(%23sky)'/%3E%3Ccircle cx='620' cy='150' r='86' fill='%23f2b544' opacity='0.9'/%3E%3Ccircle cx='620' cy='150' r='120' fill='%23f2b544' opacity='0.14'/%3E%3Cpath d='M0 470 L180 320 L300 420 L470 260 L640 400 L800 300 L800 680 L0 680 Z' fill='%231b2836'/%3E%3Cpath d='M0 540 L160 440 L320 520 L500 400 L680 500 L800 440 L800 680 L0 680 Z' fill='%2312202b'/%3E%3Cpath d='M250 680 C330 560 380 520 470 470 C540 430 590 410 640 380' stroke='url(%23road)' stroke-width='16' fill='none' stroke-linecap='round' opacity='0.92'/%3E%3Cpath d='M250 680 C330 560 380 520 470 470 C540 430 590 410 640 380' stroke='%23fff5e2' stroke-width='4' fill='none' stroke-dasharray='2 26' stroke-linecap='round'/%3E%3Cg fill='%23f7f4ee'%3E%3Crect x='80' y='300' width='46' height='170' opacity='0.9'/%3E%3Crect x='140' y='360' width='34' height='110' opacity='0.75'/%3E%3Crect x='690' y='320' width='52' height='150' opacity='0.85'/%3E%3Crect x='752' y='370' width='30' height='100' opacity='0.6'/%3E%3C/g%3E%3Cg fill='%23f2b544' opacity='0.85'%3E%3Crect x='92' y='318' width='8' height='10'/%3E%3Crect x='108' y='318' width='8' height='10'/%3E%3Crect x='92' y='342' width='8' height='10'/%3E%3Crect x='108' y='342' width='8' height='10'/%3E%3Crect x='702' y='340' width='8' height='10'/%3E%3Crect x='720' y='340' width='8' height='10'/%3E%3Crect x='702' y='366' width='8' height='10'/%3E%3C/g%3E%3C/svg%3E" alt="夜幕下延伸向城市天际线的脚步轨迹主视觉" width="800" height="680">
+        <div class="wq-hero-float"><strong>EP.02</strong> 城市脚步季 · 本期主题「踩出一条路」</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S3 + M15 企业简介 & 关键词解析 -->
+  <section class="wq-about-band">
+    <div class="wq-section">
+      <div class="wq-about-grid">
+        <div>
+          <span class="wq-section-tag">About · 品牌简介</span>
+          <h2>一家把「踩」当成方法论的视频品牌</h2>
+          <p style="margin-top:16px">万物皆可踩是一家持续运营的原创视频内容企业与品牌社区，官方网站集中呈现旗下精品内容、专题企划与创作者生态。我们相信真实的生活感来自脚下的触感——走进街巷、踩过泥地、踏进厂房、越过山脊，镜头才有温度。</p>
+          <p>平台以高清正版影像为核心，围绕城市探索、在地文化、经验分享与创作幕后建立内容矩阵，为创作者提供稳定上传、分发与收益支持的完整链路。深耕垂直领域多年，我们坚持用户至上与匠心制作，让每一支视频都对得起观看者的时间。</p>
+          <p>作为行业领先的脚步影像社区，万物皆可踩以多元、包容的姿态陪伴创作者成长，用持续更新的企业动态和开放的合作机制，把「踩」从动作变成可被信赖的内容品牌。</p>
+        </div>
+        <aside class="wq-about-side">
+          <h3>核心数据 · 持续运营中</h3>
+          <div class="wq-stat-row">
+            <div class="wq-stat-card"><b data-wq-count="1260">0</b><span>原创视频存量</span></div>
+            <div class="wq-stat-card"><b data-wq-count="86">0</b><span>签约创作者</span></div>
+            <div class="wq-stat-card"><b data-wq-count="42">0</b><span>覆盖城市</span></div>
+          </div>
+          <p style="font-size:12.5px;color:var(--wq-muted);margin-top:14px">数据统计截至 2026 年 11 月，含官方网站与社区双端内容。</p>
+        </aside>
+      </div>
+
+      <div class="wq-parse">
+        <span class="wq-section-tag">Keyword · 关键词解析</span>
+        <h2>为什么是「万物皆可踩」</h2>
+
+        <h3>一、从动作到方法：踩，是最朴素的内容入口</h3>
+        <p>「踩」在中文语境里带着身体性。它不是隔着屏幕旁观，而是把重心真正落下去：踩点、踩线、踩水、踩街、踩坑。万物皆可踩，说的是任何题材都值得被亲历一次，任何地点都能成为一次影像实验的起点。我们把这个动作提炼为品牌的创作方法论——先走到现场，再打开镜头。</p>
+        <p>在这个方法论下，万物皆可踩的选题边界被刻意放宽：一条老巷的石板路、一间凌晨四点的面包房、一段废弃铁路的枕木、一场雨后的菜市场，都能成为独立视频的主角。创作者不需要宏大的叙事，只需要给出真实的脚步声音和具体的观察细节。官方网站上的精品内容因此呈现出明显的质感差异：画面未必华丽，但信息密度高、现场感强、可复看。</p>
+        <p>对观众而言，这种内容提供的是替代性体验。你未必有时间真的走完那条巷子，但你能在十二分钟里看到它的光、它的气味描述、它的居民怎么说。这是万物皆可踩区别于普通旅行 vlog 的核心：我们不拍打卡，我们拍踩点之后的发现。</p>
+
+        <h3>二、内容生态：从单支视频到可持续的社区</h3>
+        <p>万物皆可踩的官方网站不是作品陈列柜，而是一个持续运转的内容生态入口。我们以专题企划作为组织单位，把零散的视频收束成有主题的观看序列；以创作者矩阵作为供给基础，保证选题的多元与更新频率；以用户评价和口碑体系作为反馈回路，让内容方向由社区共同校正。</p>
+        <p>在生态结构上，平台分成三层：第一层是官方自制企划，由品牌编辑部主导，保证品质下限与品牌调性；第二层是签约创作者专栏，覆盖城市探索、在地文化、手作 DIY、宠物日常、音乐现场等方向；第三层是社区投稿，任何用户都可以通过投稿入口提交自己的踩点影像，经审核后进入官方发布序列。三层结构让万物皆可踩既有稳定的精品内容供给，也保留野生表达的空间。</p>
+        <p>为了让生态真正跑起来，我们在工具层面做了不少投入：投稿后台支持断点上传与高清转码，创作者可以下载分镜模板和标题建议，评论区支持带时间码的引用讨论，专题页支持按城市、按题材、按热度筛选。这些并不起眼的功能，构成了一个视频品牌能否被长期使用的基础。</p>
+
+        <h3>三、品牌调性：真实、温暖、有力量</h3>
+        <p>万物皆可踩的视觉语言偏向冷调蓝灰与暖橙的点缀组合：蓝灰对应城市与夜色，暖橙对应脚步与灯光。这种搭配让页面既保有企业级的克制，又不至于冷得拒人千里。我们刻意避免过度的滤镜感，因为「踩」本身要求真实——地面是什么颜色，画面就该是什么颜色。</p>
+        <p>在叙事上，品牌坚持三个原则：第一，先给细节再给结论，让观众自己判断；第二，尊重被拍摄者，出镜前充分沟通，成片后回访确认；第三，不制造焦虑，不贩卖稀缺，内容的目标是陪伴而非刺激。这些原则让万物皆可踩在同类内容中形成了可辨识的口碑：看完不累，看完想出门。</p>
+        <p>我们也把这种调性延伸到社区运营。评论区的置顶不是广告，而是本周的优秀踩点线索；创作者榜单不只看播放量，也看收藏率与完播率；合作品牌的选择优先考虑与脚步、地面、出行相关的品类。这些看似琐碎的规则，最终沉淀为品牌的信誉资产——值得信赖，是万物皆可踩最想被记住的标签。</p>
+
+        <div class="wq-parse-highlight">万物皆可踩的长期目标，是成为一个可被反复访问的脚步影像档案：当你计划一次城市漫游、一次郊野徒步、一次街区探访，第一反应是来这里找一条被认真踩过的路线。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- M2 + M3 焦点内容与视频流 -->
+  <section class="wq-section wq-anchor" id="wq-videos">
+    <div class="wq-section-head">
+      <div>
+        <span class="wq-section-tag">Featured · 精品内容</span>
+        <h2>本周焦点：被踩出来的四条线索</h2>
+        <p>万物皆可踩编辑部从近期官方发布中挑出一支焦点长片与三条值得回看的短片，覆盖城市、手艺、夜行与郊野。</p>
+      </div>
+      <a class="wq-link-more" href="#wq-topics">查看全部专题</a>
+    </div>
+
+    <div class="wq-video-layout">
+      <article class="wq-video-feature">
+        <div class="wq-video-feature-img">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23f2b544'/%3E%3Cstop offset='1' stop-color='%23d94f3d'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='%23243749'/%3E%3Crect y='300' width='800' height='150' fill='%23182330'/%3E%3Cg fill='%23f7f4ee' opacity='0.9'%3E%3Crect x='60' y='150' width='70' height='150'/%3E%3Crect x='150' y='200' width='50' height='100'/%3E%3Crect x='230' y='120' width='90' height='180'/%3E%3Crect x='700' y='170' width='60' height='130'/%3E%3C/g%3E%3Cg fill='url(%23g1)'%3E%3Crect x='80' y='180' width='12' height='14'/%3E%3Crect x='108' y='180' width='12' height='14'/%3E%3Crect x='80' y='212' width='12' height='14'/%3E%3Crect x='250' y='150' width='14' height='16'/%3E%3Crect x='282' y='150' width='14' height='16'/%3E%3Crect x='250' y='186' width='14' height='16'/%3E%3C/g%3E%3Cpath d='M0 380 C200 340 360 420 520 370 C640 330 720 360 800 340 L800 450 L0 450 Z' fill='%23e8703a' opacity='0.25'/%3E%3Cpath d='M120 450 C220 370 320 350 420 340' stroke='%23f2b544' stroke-width='10' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" alt="焦点长片旧城石板路清晨脚步实录封面" width="800" height="450">
+          <span class="wq-play-badge">▶ 24:18 · 高清</span>
+        </div>
+        <div class="wq-video-feature-body">
+          <h3>焦点长片｜从石板路到防空洞：一条老巷的十二个踩点</h3>
+          <p>我们用了三天走完这条不足一公里的老巷，记录清晨的豆浆摊、午后的补鞋匠与深夜最后一盏灯。听听居民怎么讲这条街，也看看镜头里被踩得发亮的石阶。</p>
+          <div class="wq-tag-row">
+            <span class="wq-tag wq-tag-hot">城市探索</span>
+            <span class="wq-tag">在地文化</span>
+            <span class="wq-tag">深度测评</span>
+          </div>
+          <div class="wq-video-meta">
+            <span class="wq-author-inline"><span class="wq-avatar wq-avatar-a">阿</span> 阿陆踩街</span>
+            <span>播放 48.6 万 · 喜欢 3.2 万 · 收藏 1.8 万</span>
+          </div>
+          <div class="wq-actions" style="margin-top:14px">
+            <button class="wq-act wq-act-like" data-like="0">♡ 喜欢 <span>0</span></button>
+            <button class="wq-act wq-act-save" data-save="0">☆ 收藏</button>
+            <button class="wq-act wq-act-copy" data-copy="焦点长片｜从石板路到防空洞">⧉ 复制链接</button>
+            <button class="wq-act wq-act-share">↗ 分享</button>
+          </div>
+        </div>
+      </article>
+
+      <div class="wq-video-list">
+        <article class="wq-video-item">
+          <h4>踩点面包房：凌晨四点，酵母比人先醒</h4>
+          <p>跟着主厨从和面到出炉，记录一间社区面包房在日出前的完整呼吸。</p>
+          <div class="wq-tag-row"><span class="wq-tag">日常记录</span><span class="wq-tag">手作DIY</span></div>
+          <div class="wq-video-meta">
+            <span class="wq-author-inline"><span class="wq-avatar wq-avatar-b">麦</span> 麦子手记</span>
+            <span>播放 22.1 万</span>
+          </div>
+          <div class="wq-actions" style="margin-top:9px">
+            <button class="wq-act wq-act-like" data-like="0">♡ 喜欢 <span>0</span></button>
+            <button class="wq-act wq-act-save" data-save="0">☆ 收藏</button>
+            <button class="wq-act wq-act-copy" data-copy="踩点面包房：凌晨四点，酵母比人先醒">⧉ 复制</button>
+          </div>
+        </article>
+
+        <article class="wq-video-item">
+          <h4>夜行踩桥：六座人行桥的城市夜晚声音地图</h4>
+          <p>不带解说，只留下桥面脚步声、江风和远处车流，做一次纯粹的声音采风。</p>
+          <div class="wq-tag-row"><span class="wq-tag">治愈影像</span><span class="wq-tag">城市探索</span></div>
+          <div class="wq-video-meta">
+            <span class="wq-author-inline"><span class="wq-avatar wq-avatar-c">周</span> 周桥夜行</span>
+            <span>播放 17.8 万</span>
+          </div>
+          <div class="wq-actions" style="margin-top:9px">
+            <button class="wq-act wq-act-like" data-like="0">♡ 喜欢 <span>0</span></button>
+            <button class="wq-act wq-act-save" data-save="0">☆ 收藏</button>
+            <button class="wq-act wq-act-copy" data-copy="夜行踩桥：六座人行桥的城市夜晚声音地图">⧉ 复制</button>
+          </div>
+        </article>
+
+        <article class="wq-video-item">
+          <h4>踩过泥地：湿地徒步的装备复盘与失误清单</h4>
+          <p>新手很容易在湿滑路段翻车，这期把三次踩坑经验整理成可执行的对照清单。</p>
+          <div class="wq-tag-row"><span class="wq-tag">户外活动</span><span class="wq-tag">实用技巧</span></div>
+          <div class="wq-video-meta">
+            <span class="wq-author-inline"><span class="wq-avatar wq-avatar-d">林</span> 林间踩线</span>
+            <span>播放 31.4 万</span>
+          </div>
+          <div class="wq-actions" style="margin-top:9px">
+            <button class="wq-act wq-act-like" data-like="0">♡ 喜欢 <span>0</span></button>
+            <button class="wq-act wq-act-save" data-save="0">☆ 收藏</button>
+            <button class="wq-act wq-act-copy" data-copy="踩过泥地：湿地徒步的装备复盘与失误清单">⧉ 复制</button>
+          </div>
+        </article>
+
+        <article class="wq-video-item">
+          <h4>踩进厂房：一间旧纺织厂的改造现场</h4>
+          <p>从机床残件到新展厅，记录改造团队如何在保留原结构的前提下重新布线。</p>
+          <div class="wq-tag-row"><span class="wq-tag">创作幕后</span><span class="wq-tag">商业观察</span></div>
+          <div class="wq-video-meta">
+            <span class="wq-author-inline"><span class="wq-avatar wq-avatar-e">许</span> 许工现场</span>
+            <span>播放 12.6 万</span>
+          </div>
+          <div class="wq-actions" style="margin-top:9px">
+            <button class="wq-act wq-act-like" data-like="0">♡ 喜欢 <span>0</span></button>
+            <button class="wq-act wq-act-save" data-save="0">☆ 收藏</button>
+            <button class="wq-act wq-act-copy" data-copy="踩进厂房：一间旧纺织厂的改造现场">⧉ 复制</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- S4 专题企划 -->
+  <section class="wq-section wq-anchor" id="wq-topics" style="background:linear-gradient(180deg,#f7f4ee,#f1ece2)">
+    <div class="wq-section-head">
+      <div>
+        <span class="wq-section-tag">Series · 专题企划</span>
+        <h2>三个正在更新的踩点企划</h2>
+        <p>专题是万物皆可踩组织内容的方式：一个主题、一组创作者、一条可被跟随的观看顺序。</p>
+      </div>
+    </div>
+    <div class="wq-topic-grid">
+      <article class="wq-topic-card">
+        <span class="wq-topic-status wq-status-hot">更新中 · 第 2 期</span>
+        <h3>城市脚步季：踩出一条路</h3>
+        <p>聚焦城市中被忽略的步行小径、天桥与后巷，邀请六位创作者用脚步重新测绘城市。</p>
+        <ol>
+          <li>石板路十二踩点 · 阿陆踩街</li>
+          <li>六座桥的夜晚声音地图 · 周桥夜行</li>
+          <li>后巷早餐动线 · 麦子手记</li>
+        </ol>
+      </article>
+      <article class="wq-topic-card">
+        <span class="wq-topic-status">更新中 · 第 4 期</span>
+        <h3>踩进手艺：一间工作室的一天</h3>
+        <p>进入陶艺、皮具、木作与修表工作室，记录手艺人从开工到收工的真实节奏。</p>
+        <ol>
+          <li>拉坯机前的八小时 · 麦子手记</li>
+          <li>修表台的十三个零件 · 许工现场</li>
+          <li>皮具打版间的碎屑 · 阿陆踩街</li>
+        </ol>
+      </article>
+      <article class="wq-topic-card">
+        <span class="wq-topic-status">征集中 · 报名开放</span>
+        <h3>踩过四季：同一条路的十二个月</h3>
+        <p>年度长线企划，固定一条路线，每月拍摄一次，观察光影、植被与人流的缓慢变化。</p>
+        <ol>
+          <li>一月：冻土与早班车 · 林间踩线</li>
+          <li>四月：新叶覆盖的台阶 · 周桥夜行</li>
+          <li>十月：落叶与清洁工 · 阿陆踩街</li>
+        </ol>
+      </article>
+    </div>
+  </section>
+
+  <!-- S5 创作者矩阵 -->
+  <section class="wq-section wq-authors-wrap wq-anchor" id="wq-authors">
+    <div class="wq-section-head">
+      <div>
+        <span class="wq-section-tag">Creators · 创作者矩阵</span>
+        <h2>把脚步变成作品的人</h2>
+        <p>万物皆可踩的签约创作者来自不同城市与职业，共同点是愿意为一次踩点走很久的路。</p>
+      </div>
+    </div>
+    <div class="wq-author-grid">
+      <article class="wq-author-card">
+        <span class="wq-avatar wq-avatar-a">阿</span>
+        <div class="wq-author-info">
+          <h3>阿陆踩街 <em>签约</em></h3>
+          <div class="wq-author-meta"><span>城市探索 / 在地文化</span><span>作品 126</span><span>粉丝 18.4 万</span></div>
+          <p>常驻老城区，擅长用长镜头跟随人物走完整条街。拍片前习惯手绘路线图，标注每一处石阶高低与光照时段。相信脚步的速度决定画面的诚实度，作品以细节密度高、现场感强著称。</p>
+          <button class="wq-author-btn" data-author="阿陆踩街|城市探索 / 在地文化|作品 126 · 粉丝 18.4 万|常驻老城区，擅长用长镜头跟随人物走完整条街，拍片前坚持手绘路线图并标注石阶高低与光照时段。认为脚步速度决定画面诚实度，作品以细节密度和现场感见长，是万物皆可踩城市脚步季的核心创作者之一。">查看作者档案 →</button>
+        </div>
+      </article>
+      <article class="wq-author-card">
+        <span class="wq-avatar wq-avatar-b">麦</span>
+        <div class="wq-author-info">
+          <h3>麦子手记 <em>签约</em></h3>
+          <div class="wq-author-meta"><span>日常记录 / 手作DIY</span><span>作品 98</span><span>粉丝 12.7 万</span></div>
+          <p>白天在面包房，晚上剪片子。她的镜头里总有面粉、蒸汽和手部特写，擅长把重复劳动拍出节奏感。对万物皆可踩的理解很朴素：只要愿意把一件事做上很多遍，它就值得被记录。</p>
+          <button class="wq-author-btn" data-author="麦子手记|日常记录 / 手作DIY|作品 98 · 粉丝 12.7 万|白天在面包房工作，晚上剪片。镜头偏爱面粉、蒸汽与手部特写，擅长把重复劳动拍出节奏感。认为只要愿意把一件事做上很多遍，它就值得被记录，是平台日常记录方向的口碑创作者。">查看作者档案 →</button>
+        </div>
+      </article>
+      <article class="wq-author-card">
+        <span class="wq-avatar wq-avatar-c">周</span>
+        <div class="wq-author-info">
+          <h3>周桥夜行 <em>签约</em></h3>
+          <div class="wq-author-meta"><span>治愈影像 / 声音采风</span><span>作品 74</span><span>粉丝 9.6 万</span></div>
+          <p>声音设计师出身，拍视频时常常关掉解说，只留下脚步与风。夜里沿着江边人行桥走，把每座桥的材质、坡度和回声写成笔记。作品适合深夜打开，看完会想关掉屏幕出门走一段。</p>
+          <button class="wq-author-btn" data-author="周桥夜行|治愈影像 / 声音采风|作品 74 · 粉丝 9.6 万|声音设计师出身，拍摄时常关闭解说，只保留脚步与风声。夜里沿江边人行桥行走，记录每座桥的材质坡度与回声特征。作品气质安静，被社区称为适合深夜观看的治愈影像。">查看作者档案 →</button>
+        </div>
+      </article>
+      <article class="wq-author-card">
+        <span class="wq-avatar wq-avatar-d">林</span>
+        <div class="wq-author-info">
+          <h3>林间踩线 <em>签约</em></h3>
+          <div class="wq-author-meta"><span>户外活动 / 实用技巧</span><span>作品 112</span><span>粉丝 15.2 万</span></div>
+          <p>前户外领队，现在专职做徒步测评。坚持亲测每一条路线，把翻车经验同样剪进成片。他的装备清单以「够用」为标准，反对為拍照而过度负重，是平台实用技巧类内容的主力作者。</p>
+          <button class="wq-author-btn" data-author="林间踩线|户外活动 / 实用技巧|作品 112 · 粉丝 15.2 万|前户外领队，现专注徒步路线测评。坚持亲测每条路线，并把翻车经验同样剪进成片。装备清单以够用为标准，反对为拍照过度负重。其对照式清单结构被大量用户收藏，是实用技巧方向主力作者。">查看作者档案 →</button>
+        </div>
+      </article>
+      <article class="wq-author-card">
+        <span class="wq-avatar wq-avatar-e">许</span>
+        <div class="wq-author-info">
+          <h3>许工现场 <em>签约</em></h3>
+          <div class="wq-author-meta"><span>创作幕后 / 商业观察</span><span>作品 63</span><span>粉丝 7.8 万</span></div>
+          <p>建筑工程师，擅长拍改造现场。他的视频总带着图纸、卷尺和安全帽，把工地的嘈杂梳理成清晰步骤。相信专业内容也能好看，只是需要更多耐心去解释每个决定背后的原因。</p>
+          <button class="wq-author-btn" data-author="许工现场|创作幕后 / 商业观察|作品 63 · 粉丝 7.8 万|建筑工程师出身，专注记录改造现场。视频中常出现图纸、卷尺与安全帽，把工地嘈杂梳理为清晰步骤。坚持专业内容也能好看，需要耐心解释每个工程决定背后的原因与取舍。">查看作者档案 →</button>
+        </div>
+      </article>
+      <article class="wq-author-card">
+        <span class="wq-avatar wq-avatar-f">汤</span>
+        <div class="wq-author-info">
+          <h3>汤圆踩点 <em>新人</em></h3>
+          <div class="wq-author-meta"><span>宠物日常 / 城市探索</span><span>作品 31</span><span>粉丝 4.3 万</span></div>
+          <p>带着一只柯基走城市，用小短腿的视角重新认识台阶与坡道。她的视频里有大量低机位画面和真实的路人反应，把无障碍话题讲得轻松不沉重。新人榜连续三周前十。</p>
+          <button class="wq-author-btn" data-author="汤圆踩点|宠物日常 / 城市探索|作品 31 · 粉丝 4.3 万|带着一只柯基行走城市，用低机位视角重新观察台阶与坡道。视频包含大量真实路人反应，把无障碍话题讲得轻松不沉重。新人榜连续三周前十，是平台重点扶持的新锐创作者。">查看作者档案 →</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- S6 评论区 -->
+  <section class="wq-section wq-anchor" id="wq-comments">
+    <div class="wq-section-head">
+      <div>
+        <span class="wq-section-tag">Community · 用户口碑</span>
+        <h2>观众怎么说万物皆可踩</h2>
+        <p>来自官方网站与社区双端的真实短评，长度与关注点各不相同，我们只做轻量整理。</p>
+      </div>
+    </div>
+    <div class="wq-comments-grid">
+      <div class="wq-comment-list">
+        <article class="wq-comment">
+          <div class="wq-comment-head"><span class="wq-avatar wq-avatar-b" style="width:26px;height:26px;font-size:11px">夏</span><b>夏日慢半拍</b><span>2 天前</span></div>
+          <p>看完石板路那期，第二天真的去走了一遍，石阶确实被踩得发亮。这种看完能直接行动的片子现在太少了。</p>
+        </article>
+        <article class="wq-comment">
+          <div class="wq-comment-head"><span class="wq-avatar wq-avatar-d" style="width:26px;height:26px;font-size:11px">老</span><b>老周不加班</b><span>4 天前</span></div>
+          <p>夜行踩桥那期我戴耳机看的，脚步声一出来整个人就安静了。建议官网上线一个纯声音的播放模式。</p>
+        </article>
+        <article class="wq-comment">
+          <div class="wq-comment-head"><span class="wq-avatar wq-avatar-a" style="width:26px;height:26px;font-size:11px">南</span><b>南风与相机</b><span>5 天前</span></div>
+          <p>作为同行说句实在话，这里的剪辑节奏很克制，没有滥用变速和音效，很难得。就是更新再快一点就好了。</p>
+        </article>
+        <article class="wq-comment">
+          <div class="wq-comment-head"><span class="wq-avatar wq-avatar-e" style="width:26px;height:26px;font-size:11px">阿</span><b>阿栗要出门</b><span>1 周前</span></div>
+          <p>湿地徒步那期的失误清单帮我省了很多事，照着买装备少踩两个坑。希望多做这种对照表。</p>
+        </article>
+        <article class="wq-comment">
+          <div class="wq-comment-head"><span class="wq-avatar wq-avatar-c" style="width:26px;height:26px;font-size:11px">木</span><b>木木在看</b><span>1 周前</span></div>
+          <p>带柯基走城市那个系列好可爱，而且真的会让人注意到坡道和台阶的问题，比说教有用多了。</p>
+        </article>
+        <article class="wq-comment">
+          <div class="wq-comment-head"><span class="wq-avatar wq-avatar-f" style="width:26px;height:26px;font-size:11px">四</span><b>四月的风</b><span>2 周前</span></div>
+          <p>投稿过一次，审核反馈很具体，指出了收音和字幕的问题，不是那种模板回复。这点值得信赖。</p>
+        </article>
+      </div>
+      <div>
+        <div class="wq-quote-card">
+          <p>万物皆可踩最打动我的是它不急着给你结论。它只是把一条路认真地走完，然后让你自己决定要不要出发。</p>
+          <span>—— 资深观众 · 城市漫游爱好者</span>
+          <div class="wq-score-box">
+            <div class="wq-score-item"><b>4.8</b><span>综合口碑</span></div>
+            <div class="wq-score-item"><b>92%</b><span>完播率</span></div>
+            <div class="wq-score-item"><b>3.1 万</b><span>本周收藏</span></div>
+          </div>
+        </div>
+        <div class="wq-comment" style="margin-top:20px">
+          <div class="wq-comment-head"><span class="wq-avatar wq-avatar-d" style="width:26px;height:26px;font-size:11px">山</span><b>山脚下的鱼</b><span>3 天前</span></div>
+          <p>旧厂房改造那期信息量很大，每一步都有原因，不像普通探店只拍好看。希望有更长的版本。</p>
+        </div>
+        <div class="wq-comment" style="margin-top:13px">
+          <div class="wq-comment-head"><span class="wq-avatar wq-avatar-a" style="width:26px;height:26px;font-size:11px">九</span><b>九号骑手</b><span>6 天前</span></div>
+          <p>画面调色偏冷但很舒服，没有过度美化，地面就是地面。企业级制作但保留野生感，挺难得。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- M10 + M12 企业动态与 FAQ -->
+  <section class="wq-section wq-anchor" id="wq-help" style="background:linear-gradient(180deg,#f1ece2,#f7f4ee)">
+    <div class="wq-two-col">
+      <div>
+        <span class="wq-section-tag">Help · 帮助中心</span>
+        <h2 style="font-size:26px;color:var(--wq-deep);margin-bottom:22px">关于观看、投稿与合作的常见问题</h2>
+        <div class="wq-faq">
+          <details open>
+            <summary>观看万物皆可踩的内容需要付费吗？</summary>
+            <p>官方网站的基础观看服务免费，所有原创视频支持高清播放。部分专题企划会提供额外的下载素材包与分镜模板，属于创作者会员权益。</p>
+          </details>
+          <details>
+            <summary>如何向平台投稿自己的踩点视频？</summary>
+            <p>点击页面中的投稿入口，填写主题、拍摄地点与素材信息后上传。审核通常在五个工作日内完成，通过后会进入官方发布排期并通知你。</p>
+          </details>
+          <details>
+            <summary>投稿的视频会保留我的版权吗？</summary>
+            <p>会。创作者保留作品著作权，平台获得的是展示与分发授权。我们鼓励正版与原创，任何转载都会标注作者与出处。</p>
+          </details>
+          <details>
+            <summary>专题企划的更新频率是怎样的？</summary>
+            <p>城市脚步季为双周更新，踩进手艺为月度更新，踩过四季为年度长线企划，每月发布一次实拍记录。具体排期以公告条为准。</p>
+          </details>
+          <details>
+            <summary>可以申请成为签约创作者吗？</summary>
+            <p>可以。在投稿时勾选签约意向，或在合作页面提交资料。我们主要看选题的持续性、画面完成度与叙述诚实度，不单看播放数据。</p>
+          </details>
+          <details>
+            <summary>品牌方如何与万物皆可踩合作？</summary>
+            <p>我们优先考虑与出行、地面、城市生活相关的品类合作。可在页脚找到合作联系邮箱，说明合作方向与预算区间，编辑部会在一周内回复。</p>
+          </details>
+        </div>
+      </div>
+      <div>
+        <span class="wq-section-tag">News · 企业动态</span>
+        <h2 style="font-size:26px;color:var(--wq-deep);margin-bottom:22px">官方发布与更新日志</h2>
+        <div class="wq-news-list">
+          <article class="wq-news-item">
+            <div class="wq-news-date">11.18<br>2026</div>
+            <div>
+              <h3>城市脚步季第二期正式上线</h3>
+              <p>新增 18 支原创高清视频，覆盖六座城市的后巷与天桥动线。</p>
+            </div>
+          </article>
+          <article class="wq-news-item">
+            <div class="wq-news-date">11.09<br>2026</div>
+            <div>
+              <h3>投稿后台升级高清转码与断点上传</h3>
+              <p>新版本支持 4K 素材上传与自动分段，减少创作者重复劳动。</p>
+            </div>
+          </article>
+          <article class="wq-news-item">
+            <div class="wq-news-date">10.27<br>2026</div>
+            <div>
+              <h3>踩过四季年度企划开启报名</h3>
+              <p>面向所有用户征集同一条路线的十二个月记录，入选者获制作支持。</p>
+            </div>
+          </article>
+          <article class="wq-news-item">
+            <div class="wq-news-date">10.12<br>2026</div>
+            <div>
+              <h3>平台与三家城市文化机构达成合作</h3>
+              <p>共同开发在地文化影像档案，首批内容将于十二月发布。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- M11 合作品牌 -->
+  <section class="wq-section">
+    <div class="wq-section-head">
+      <div>
+        <span class="wq-section-tag">Partners · 合作品牌</span>
+        <h2>与我们一起踩过去的伙伴</h2>
+        <p>万物皆可踩只与调性一致的品牌合作，内容优先，不打断观看体验。</p>
+      </div>
+    </div>
+    <div class="wq-partners">
+      <div class="wq-partner">山野鞋履<span>户外装备支持</span></div>
+      <div class="wq-partner">城市书店联盟<span>在地文化共创</span></div>
+      <div class="wq-partner">慢行咖啡<span>专题联合出品</span></div>
+      <div class="wq-partner">砖瓦影像器材<span>拍摄设备支持</span></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wq-footer">
+  <div class="wq-footer-inner">
+    <div>
+      <h3>万物皆可踩 · 官方网站</h3>
+      <p>专注脚步影像与生活探索的原创视频品牌，持续深耕城市与在地文化垂直领域，为创作者与企业搭建高品质内容生态。</p>
+      <p>商务合作：brand@wq-allstep.example<br>投稿咨询：creator@wq-allstep.example</p>
+    </div>
+    <div class="wq-footer-col">
+      <h3>内容导航</h3>
+      <ul>
+        <li><a href="#wq-videos">精品内容</a></li>
+        <li><a href="#wq-topics">专题企划</a></li>
+        <li><a href="#wq-authors">创作者矩阵</a></li>
+        <li><a href="#wq-comments">用户口碑</a></li>
+        <li><a href="#wq-help">帮助中心</a></li>
+      </ul>
+    </div>
+    <div class="wq-footer-col">
+      <h3>品牌信息</h3>
+      <ul>
+        <li><a href="#wq-help">企业动态</a></li>
+        <li><a href="#wq-help">合作与投稿</a></li>
+        <li><a href="#wq-main">关于我们</a></li>
+        <li><a href="#wq-topics">内容生态说明</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wq-footer-bottom">
+    <span>© 2026 万物皆可踩 版权所有 · 持续运营中</span>
+    <span>原创正版内容平台 · 备案号 00000000000000 号</span>
+  </div>
+</footer>
+
+<button class="wq-backtop" id="wq-backtop" aria-label="回到顶部">↑</button>
+<div class="wq-toast" id="wq-toast"></div>
+
+<div class="wq-modal-mask" id="wq-author-modal">
+  <div class="wq-modal" role="dialog" aria-modal="true" aria-label="创作者档案">
+    <button class="wq-modal-close" id="wq-modal-close" aria-label="关闭">✕</button>
+    <h3 id="wq-modal-name">创作者</h3>
+    <div class="wq-modal-sub" id="wq-modal-field">领域</div>
+    <p id="wq-modal-data">数据</p>
+    <p id="wq-modal-bio">简介</p>
+    <button class="wq-btn wq-btn-primary" id="wq-modal-follow" style="margin-top:12px">关注该创作者</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ============ 移动端导航 ============ */
+  var navToggle = document.getElementById('wq-nav-toggle');
+  var mobileNav = document.getElementById('wq-mobile-nav');
+  if (navToggle && mobileNav) {
+    navToggle.addEventListener('click', function(){
+      var open = mobileNav.classList.toggle('wq-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      navToggle.textContent = open ? '✕' : '☰';
+    });
+    mobileNav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        mobileNav.classList.remove('wq-open');
+        navToggle.setAttribute('aria-expanded','false');
+        navToggle.textContent = '☰';
+      });
+    });
+  }
+
+  /* ============ Toast ============ */
+  var toast = document.getElementById('wq-toast');
+  var toastTimer = null;
+  function showToast(msg){
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.classList.add('wq-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){
+      toast.classList.remove('wq-show');
+    }, 2200);
+  }
+
+  /* ============ 搜索反馈 ============ */
+  var searchForm = document.getElementById('wq-search-form');
+  var searchInput = document.getElementById('wq-search-input');
+  var searchFeedback = document.getElementById('wq-search-feedback');
+  if (searchForm && searchInput && searchFeedback) {
+    searchForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var q = searchInput.value.trim();
+      if (!q) {
+        searchFeedback.textContent = '请输入关键词后再搜索';
+      } else {
+        searchFeedback.textContent = '已为你筛选「' + q + '」相关内容 ' + (Math.floor(Math.random()*18)+6) + ' 条';
+        showToast('搜索完成：' + q);
+      }
+      searchFeedback.classList.add('wq-show');
+      clearTimeout(searchFeedback._t);
+      searchFeedback._t = setTimeout(function(){
+        searchFeedback.classList.remove('wq-show');
+      }, 3000);
+    });
+  }
+
+  /* ============ 数字滚动 ============ */
+  var counters = document.querySelectorAll('[data-wq-count]');
+  var counted = false;
+  function runCounters(){
+    if (counted) return;
+    counted = true;
+    counters.forEach(function(el){
+      var target = parseInt(el.getAttribute('data-wq-count'), 10) || 0;
+      var start = 0;
+      var duration = 1200;
+      var t0 = null;
+      function step(ts){
+        if (!t0) t0 = ts;
+        var p = Math.min((ts - t0) / duration, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(start + (target - start) * eased);
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = target;
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  if ('IntersectionObserver' in window) {
+    var counterObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) runCounters();
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(function(c){ counterObserver.observe(c); });
+  } else {
+    runCounters();
+  }
+
+  /* ============ 点赞 / 收藏 ============ */
+  document.querySelectorAll('.wq-act-like').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var span = btn.querySelector('span');
+      var base = parseInt(btn.getAttribute('data-like'), 10) || 0;
+      var on = btn.classList.toggle('wq-act-on');
+      base += on ? 1 : -1;
+      if (base < 0) base = 0;
+      btn.setAttribute('data-like', base);
+      if (span) span.textContent = base;
+      btn.firstChild.nodeValue = on ? '♥ 喜欢 ' : '♡ 喜欢 ';
+      showToast(on ? '已加入喜欢' : '已取消喜欢');
+    });
+  });
+
+  document.querySelectorAll('.wq-act-save').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var on = btn.classList.toggle('wq-act-on');
+      btn.textContent = on ? '★ 已收藏' : '☆ 收藏';
+      showToast(on ? '已收藏到我的片单' : '已取消收藏');
+    });
+  });
+
+  /* ============ 复制链接 ============ */
+  document.querySelectorAll('.wq-act-copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var title = btn.getAttribute('data-copy') || '万物皆可踩';
+      var text = title + ' · 万物皆可踩官方网站';
+      function fallback(){
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch(e) {}
+        document.body.removeChild(ta);
+        showToast('链接已复制，欢迎分享');
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function(){
+          showToast('链接已复制，欢迎分享');
+        }).catch(fallback);
+      } else {
+        fallback();
+      }
+    });
+  });
+
+  /* ============ 分享 ============ */
+  document.querySelectorAll('.wq-act-share').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      showToast('分享面板：微信 / 微博 / QQ（演示）');
+    });
+  });
+
+  /* ============ 作者弹窗 ============ */
+  var modalMask = document.getElementById('wq-author-modal');
+  var modalName = document.getElementById('wq-modal-name');
+  var modalField = document.getElementById('wq-modal-field');
+  var modalData = document.getElementById('wq-modal-data');
+  var modalBio = document.getElementById('wq-modal-bio');
+  var modalClose = document.getElementById('wq-modal-close');
+  var modalFollow = document.getElementById('wq-modal-follow');
+
+  function closeModal(){
+    if (modalMask) modalMask.classList.remove('wq-show');
+  }
+  document.querySelectorAll('.wq-author-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var raw = btn.getAttribute('data-author') || '';
+      var parts = raw.split('|');
+      if (modalName) modalName.textContent = parts[0] || '创作者';
+      if (modalField) modalField.textContent = parts[1] || '';
+      if (modalData) modalData.textContent = parts[2] || '';
+      if (modalBio) modalBio.textContent = parts[3] || '';
+      if (modalFollow) {
+        modalFollow.textContent = '关注该创作者';
+        modalFollow.classList.add('wq-btn-primary');
+      }
+      if (modalMask) modalMask.classList.add('wq-show');
+    });
+  });
+  if (modalClose) modalClose.addEventListener('click', closeModal);
+  if (modalMask) {
+    modalMask.addEventListener('click', function(e){
+      if (e.target === modalMask) closeModal();
+    });
+  }
+  if (modalFollow) {
+    modalFollow.addEventListener('click', function(){
+      modalFollow.textContent = '已关注 ✓';
+      showToast('关注成功，更新将出现在你的订阅');
+    });
+  }
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeModal();
+  });
+
+  /* ============ 投稿入口 ============ */
+  function submitEntry(){
+    showToast('投稿通道已开启：请准备好主题、地点与素材信息');
+  }
+  var heroSubmit = document.getElementById('wq-open-submit-hero');
+  if (heroSubmit) heroSubmit.addEventListener('click', submitEntry);
+
+  /* ============ 回到顶部 ============ */
+  var backtop = document.getElementById('wq-backtop');
+  if (backtop) {
+    window.addEventListener('scroll', function(){
+      if (window.scrollY > 420) backtop.classList.add('wq-show');
+      else backtop.classList.remove('wq-show');
+    }, { passive: true });
+    backtop.addEventListener('click', function(){
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+})();
+</script>
+</body>
+            </html>
